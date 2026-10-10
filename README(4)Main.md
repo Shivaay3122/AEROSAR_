@@ -235,9 +235,9 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for details.
 
 ## 👤 Author
 
-**[Your Name]**
+**[Siddharth pawaria]**
 
-[LinkedIn](https://linkedin.com/in/your-profile) · [GitHub](https://github.com/your-username)
+[LinkedIn](https://www.linkedin.com/in/siddharth-pawadiya-799619407/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BoHQWYd%2FVQlWmYlIdxkkiDw%3D%3D) · [GitHub](https://www.linkedin.com/in/siddharth-pawadiya-799619407/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BoHQWYd%2FVQlWmYlIdxkkiDw%3D%3D)
 
 ---
 
