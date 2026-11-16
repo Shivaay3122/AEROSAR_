@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Backgrounds */
+  --bg-base: #080D18;
+  --bg-panel: #101827;
+  --bg-elevated: #151F30;
+  --bg-input: #0C1320;
+
+  /* Accents */
+  --accent-cyan: #39D9FF;
+  --accent-cyan-dim: rgba(57, 217, 255, 0.15);
+  --accent-radar: #42E8A5;
+  --accent-radar-dim: rgba(66, 232, 165, 0.15);
+  --accent-amber: #FFB547;
+  --accent-amber-dim: rgba(255, 181, 71, 0.15);
+  --accent-red: #FF5D6C;
+  --accent-red-dim: rgba(255, 93, 108, 0.15);
+
+  /* Text */
+  --text-primary: #F3F7FC;
+  --text-muted: #9AA9BD;
+  --text-faint: #5C6B82;
+
+  /* Borders */
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --border-default: rgba(148, 163, 184, 0.24);
+  --border-focus: rgba(57, 217, 255, 0.5);
+
+  /* Shadows */
+  --shadow-panel: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(57, 217, 255, 0.15);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Leaflet map overrides --- */
+.leaflet-container {
+  background: #1a1a2e !important;
+  font-family: var(--font-sans) !important;
+  cursor: crosshair !important;
+}
+.leaflet-container a,
+.leaflet-container button,
+.leaflet-control-zoom,
+.leaflet-control-attribution {
+  cursor: pointer !important;
+}
+.leaflet-grab {
+  cursor: grab !important;
+}
+.leaflet-dragging .leaflet-grab {
+  cursor: grabbing !important;
+}
+.leaflet-control-attribution {
+  background: rgba(13, 27, 42, 0.85) !important;
+  color: #5C6B82 !important;
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+  border-radius: 4px 0 0 0 !important;
+}
+.leaflet-control-attribution a {
+  color: #9AA9BD !important;
+}
+.leaflet-bar a {
+  background: var(--bg-panel) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  transition: background 0.15s ease;
+}
+.leaflet-bar a:hover {
+  background: var(--bg-elevated) !important;
+}
+.leaflet-control-scale-line {
+  background: rgba(13, 27, 42, 0.85) !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border-default) !important;
+  font-size: 10px !important;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: var(--radius-md) !important;
+}
+.leaflet-popup-tip {
+  background: var(--bg-elevated) !important;
+}
+
+/* Aircraft marker pulse */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.aerosar-pulse {
+  animation: pulse-ring 2s ease-out infinite;
+}
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.aerosar-radar-sweep {
+  animation: radar-sweep 4s linear infinite;
+}
+
+/* Slide-up transition */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slide-up 0.35s ease-out;
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-sm {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Page fly transition */
+@keyframes fly-in {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes fly-in-reverse {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.animate-fly-in {
+  animation: fly-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-fly-in-reverse {
+  animation: fly-in-reverse 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
